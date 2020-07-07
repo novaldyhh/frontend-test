@@ -51,27 +51,19 @@ division.delete("/delete/:id", function (req, res) {
 });
 
 division.put("/edit/:id", function (req, res) {
-  jwt.verify(req.token),
-    "katakuncisuperrahasia",
-    (err) => {
-      if (!req.token) {
-        res.sendStatus(403);
-      } else {
-        Divisions.update(
-          {
-            kode_wilayah: req.body.kode_wilayah,
-            wilayah_name: req.body.wilayah_name,
-            korda: req.body.korda,
-            telp_korda: req.body.telp_korda,
-          },
-          { where: { id: req.params.id } }
-        )
-          .then(() => {
-            res.json({ status: "Data Berhasil Diupdate" });
-          })
-          .error((err) => errorHandler(err));
-      }
-    };
+  Divisions.update(
+    {
+      kode_wilayah: req.body.kode_wilayah,
+      wilayah_name: req.body.wilayah_name,
+      korda: req.body.korda,
+      telp_korda: req.body.telp_korda,
+    },
+    { where: { id: req.params.id } }
+  )
+    .then(() => {
+      res.json({ status: "Data Berhasil Diupdate" });
+    })
+    .error((err) => errorHandler(err));
 });
 
 module.exports = division;

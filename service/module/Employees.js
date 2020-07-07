@@ -7,6 +7,7 @@ module.exports = db.sequelize.define(
     ID: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
     NIK: { type: Sequelize.STRING },
     FullName: { type: Sequelize.STRING },
+    Divisi: { type: Sequelize.STRING },
     TglJoin: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     TglModifikasi: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     TglRegistrasi: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
@@ -14,6 +15,10 @@ module.exports = db.sequelize.define(
     NoKTP: { type: Sequelize.STRING },
     Photo: { type: Sequelize.BLOB },
     StatusNikah: { type: Sequelize.STRING },
+    Gaji: { type: Sequelize.STRING },
+    TunjanganTetap: { type: Sequelize.STRING },
+    TunjanganTdkTetap: { type: Sequelize.STRING },
+    JnsKelamin: { type: Sequelize.STRING },
   },
   { timestamp: false }
 );

@@ -62,6 +62,11 @@ employee.put("/edit/:id", function (req, res) {
       NoKTP: req.body.NoKTP,
       Photo: req.body.Photo,
       StatusNikah: req.body.StatusNikah,
+      Divisi: req.body.Divisi,
+      JnsKelamin: req.body.JnsKelamin,
+      Gaji: req.body.Gaji,
+      TunjanganTetap: req.body.TunjanganTetap,
+      TunjanganTdkTetap: req.body.TunjanganTdkTetap,
     },
     { where: { ID: req.params.id } }
   )
