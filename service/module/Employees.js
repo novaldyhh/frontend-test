@@ -13,7 +13,6 @@ module.exports = db.sequelize.define(
     TglRegistrasi: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     TglLahir: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     NoKTP: { type: Sequelize.STRING },
-    Photo: { type: Sequelize.BLOB },
     StatusNikah: { type: Sequelize.STRING },
     Gaji: { type: Sequelize.STRING },
     TunjanganTetap: { type: Sequelize.STRING },

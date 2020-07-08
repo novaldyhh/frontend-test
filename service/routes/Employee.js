@@ -1,6 +1,8 @@
 var express = require("express");
 const employee = express.Router();
 const Employees = require("../module/Employees");
+const multer = require("multer");
+const upload = multer({ dest: "images/" });
 
 employee.get("/get", function (req, res, next) {
   Employees.findAll()
@@ -30,7 +32,17 @@ employee.get("/get/:id", function (req, res, next) {
     });
 });
 
-employee.post("/add", function (req, res) {
+employee.post("/photo", upload.single("Photo"), function (req, res) {
+  Employees.create(req.file)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.json("error: " + err);
+    });
+});
+
+employee.post("/add", function (req, res, err) {
   Employees.create(req.body)
     .then((data) => {
       res.send(data);
